@@ -68,7 +68,6 @@ public class RmiServer extends java.rmi.server.UnicastRemoteObject implements Rm
     {
         try
         {
-            // get the address of this host.
             thisAddress= (InetAddress.getLocalHost()).toString();
         }
         catch(Exception e)
@@ -79,9 +78,8 @@ public class RmiServer extends java.rmi.server.UnicastRemoteObject implements Rm
         System.out.println("this address="+thisAddress+",port="+thisPort);
         try
         {
-            // create the registry and bind the name and object.
             registry = LocateRegistry.createRegistry( thisPort );
-            registry.rebind("rmiServer", this); //Registry Refernce.
+            registry.rebind("rmiServer", this); 
         }
 
         catch(RemoteException e)
